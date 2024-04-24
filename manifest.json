@@ -1,9 +1,10 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "NMVS scanner",
     "author": "Māris Vilks <maris.vilks@expect.digital>",
-    "version": "1.0",
+    "version": "1.0.1",
     "description": "Allows DataMatrix code (GTIN) scanning directly into NMVS verification/decommissioning form.",
+    "homepage_url": "https://github.com/mvilks/nmvs-scanner",
     "icons": {
         "64": "icons/datamatrix-expectdigital.png"
     },
