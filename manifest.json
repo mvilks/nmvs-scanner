@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "NMVS scanner",
+    "author": "Māris Vilks <maris.vilks@expect.digital>",
+    "version": "1.0",
+    "description": "Allows DataMatrix code (GTIN) scanning directly into NMVS verification/decommissioning form.",
+    "icons": {
+        "64": "icons/datamatrix-expectdigital.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://portal-prod-lv.nmvs.eu/NMVS_PORTAL/sn/Serialnumber.xhtml*"
+            ],
+            "js": [
+                "jquery-3.7.1.min.js",
+                "main.js"
+            ]
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "nmvs-scanner@expect.digital"
+        }
+    }
+}

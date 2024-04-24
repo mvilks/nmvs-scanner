@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1600, initial-scale=1.0" />
+    <title>Scanner test</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"
+      integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k="
+      crossorigin="anonymous"></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <p id="output"></p>
+
+    <form
+      id="serialnumberForm"
+      name="serialnumberForm"
+      method="post"
+      action="/NMVS_PORTAL/sn/Serialnumber.xhtml?dswid=8547"
+      enctype="application/x-www-form-urlencoded"
+      style="position: relative"
+      aria-busy="false">
+      <div id="serialnumberForm:focusPanel" class="ui-outputpanel ui-widget">
+        <span id="serialnumberForm:j_id_27"></span>
+      </div>
+      <div id="serialnumberForm:j_id_28" class="row">
+        <div id="serialnumberForm:j_id_29" class="col-md-6 col-xs-12 col-lg-6">
+          <table
+            id="serialnumberForm:j_id_2a"
+            class="ui-panelgrid ui-widget"
+            role="grid">
+            <tbody>
+              <tr class="ui-widget-content" role="row">
+                <td role="gridcell" class="ui-panelgrid-cell">
+                  <div
+                    id="serialnumberForm:snProcessPanel"
+                    class="ui-panel ui-widget ui-widget-content ui-corner-all securpharm-panel"
+                    data-widget="widget_serialnumberForm_snProcessPanel">
+                    <div
+                      id="serialnumberForm:snProcessPanel_header"
+                      class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+                      <span class="ui-panel-title"
+                        >Identiicēt seriālo numuru</span
+                      >
+                    </div>
+                    <div
+                      id="serialnumberForm:snProcessPanel_content"
+                      class="ui-panel-content ui-widget-content">
+                      <div id="serialnumberForm:j_id_2c" class="row">
+                        <div id="serialnumberForm:j_id_2d" class="col-xs-4">
+                          <span id="serialnumberForm:id56992605">Process</span>
+                        </div>
+                        <div id="serialnumberForm:j_id_2f" class="col-xs-8">
+                          <div
+                            id="serialnumberForm:snprocess"
+                            class="ui-selectonemenu ui-widget ui-state-default ui-corner-all"
+                            aria-owns="serialnumberForm:snprocess_panel"
+                            style="width: 100%"
+                            role="combobox"
+                            aria-haspopup="listbox"
+                            aria-expanded="false">
+                            <div class="ui-helper-hidden-accessible">
+                              <input
+                                id="serialnumberForm:snprocess_focus"
+                                name="serialnumberForm:snprocess_focus"
+                                type="text"
+                                autocomplete="off" />
+                            </div>
+                            <div class="ui-helper-hidden-accessible">
+                              <select
+                                id="serialnumberForm:snprocess_input"
+                                name="serialnumberForm:snprocess_input"
+                                tabindex="-1"
+                                autocomplete="off"
+                                aria-hidden="true"
+                                onchange='PrimeFaces.bcn(this,event,[function(event){PrimeFaces.ab({s:"serialnumberForm:snprocess",e:"valueChange",f:"serialnumberForm",p:"serialnumberForm:snprocess",u:"serialnumberForm:hiddenfield"});},function(event){PrimeFaces.ab({s:"serialnumberForm:snprocess",e:"valueChange",f:"serialnumberForm",p:"serialnumberForm:snprocess",u:"serialnumberForm"});}]);'>
+                                <option
+                                  value="snVERIFY"
+                                  selected="selected"
+                                  data-escape="true">
+                                  Pilna verificēšana (G110)
+                                </option>
+                                <option
+                                  value="snMANUAL_VERIFY"
+                                  data-escape="true">
+                                  Vienkāršota verificēšana (G112)
+                                </option>
+                                <option value="snDISPENSED" data-escape="true">
+                                  Pilna dzēšana (G120)
+                                </option>
+                                <option
+                                  value="snUNDO_DISPENSED"
+                                  data-escape="true">
+                                  Dzēsta iepakojuma atjaunošana - pilns (G121)
+                                </option>
+                                <option
+                                  value="snMANUAL_DISPENSED"
+                                  data-escape="true">
+                                  Vienkāršota dzēšana (G122)
+                                </option>
+                                <option
+                                  value="snMANUAL_UNDO_DISPENSED"
+                                  data-escape="true">
+                                  Dzēsta iepakojumu atgriešana - vienkāršots
+                                  (G123)
+                                </option>
+                                <option
+                                  value="snMANUAL_DESTROY"
+                                  data-escape="true">
+                                  Vienkāršota iznīcināšana (G132)
+                                </option>
+                                <option
+                                  value="snUNDO_SAMPLE"
+                                  data-escape="true">
+                                  Atgriezt paraugu (G151)
+                                </option>
+                                <option
+                                  value="snMANUAL_SAMPLE"
+                                  data-escape="true">
+                                  Vienkāršota parauga iznsiegšana (G152)
+                                </option>
+                              </select>
+                            </div>
+                            <label
+                              id="serialnumberForm:snprocess_label"
+                              class="ui-selectonemenu-label ui-inputfield ui-corner-all"
+                              >Pilna verificēšana (G110)</label
+                            >
+                            <div
+                              class="ui-selectonemenu-trigger ui-state-default ui-corner-right">
+                              <span
+                                class="ui-icon ui-icon-triangle-1-s ui-c"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="serialnumberForm:j_id_35" class="row">
+                        <div id="serialnumberForm:j_id_36" class="col-xs-4">
+                          <span id="serialnumberForm:id98336605"
+                            >Datu ievade</span
+                          >
+                        </div>
+                        <div id="serialnumberForm:j_id_38" class="col-xs-8">
+                          <div
+                            id="serialnumberForm:scanmodeSelect"
+                            class="ui-selectonemenu ui-widget ui-state-default ui-corner-all"
+                            aria-owns="serialnumberForm:scanmodeSelect_panel"
+                            style="width: 100%"
+                            role="combobox"
+                            aria-haspopup="listbox"
+                            aria-expanded="false">
+                            <div class="ui-helper-hidden-accessible">
+                              <input
+                                id="serialnumberForm:scanmodeSelect_focus"
+                                name="serialnumberForm:scanmodeSelect_focus"
+                                type="text"
+                                autocomplete="off" />
+                            </div>
+                            <div class="ui-helper-hidden-accessible">
+                              <select
+                                id="serialnumberForm:scanmodeSelect_input"
+                                name="serialnumberForm:scanmodeSelect_input"
+                                tabindex="-1"
+                                autocomplete="off"
+                                aria-hidden="true"
+                                onchange='PrimeFaces.ab({s:"serialnumberForm:scanmodeSelect",e:"valueChange",f:"serialnumberForm",p:"serialnumberForm:scanmodeSelect",u:"serialnumberForm"});'>
+                                <option
+                                  value="snInputManu"
+                                  selected="selected"
+                                  data-escape="true">
+                                  Klaviatūra
+                                </option>
+                              </select>
+                            </div>
+                            <label
+                              id="serialnumberForm:scanmodeSelect_label"
+                              class="ui-selectonemenu-label ui-inputfield ui-corner-all"
+                              >Klaviatūra</label
+                            >
+                            <div
+                              class="ui-selectonemenu-trigger ui-state-default ui-corner-right">
+                              <span
+                                class="ui-icon ui-icon-triangle-1-s ui-c"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="serialnumberForm:j_id_3c" class="row">
+                        <div id="serialnumberForm:j_id_3d" class="col-xs-4">
+                          <span id="serialnumberForm:id54864605"
+                            >Produkta kods</span
+                          >
+                        </div>
+                        <div id="serialnumberForm:j_id_3f" class="col-xs-8">
+                          <div
+                            id="serialnumberForm:PZNorPPN"
+                            class="ui-selectonemenu ui-widget ui-state-default ui-corner-all panel-filter-option-productnumbermode"
+                            aria-owns="serialnumberForm:PZNorPPN_panel"
+                            role="combobox"
+                            aria-haspopup="listbox"
+                            aria-expanded="false"
+                            style="min-width: 117.633px">
+                            <div class="ui-helper-hidden-accessible">
+                              <input
+                                id="serialnumberForm:PZNorPPN_focus"
+                                name="serialnumberForm:PZNorPPN_focus"
+                                type="text"
+                                autocomplete="off" />
+                            </div>
+                            <div class="ui-helper-hidden-accessible">
+                              <select
+                                id="serialnumberForm:PZNorPPN_input"
+                                name="serialnumberForm:PZNorPPN_input"
+                                tabindex="-1"
+                                autocomplete="off"
+                                aria-hidden="true"
+                                onchange='PrimeFaces.ab({s:"serialnumberForm:PZNorPPN",e:"valueChange",f:"serialnumberForm",p:"serialnumberForm:PZNorPPN",u:"serialnumberForm",ps:true});'>
+                                <option
+                                  value="GTIN"
+                                  selected="selected"
+                                  data-escape="true">
+                                  GTIN/NTIN
+                                </option>
+                                <option value="PPN" data-escape="true">
+                                  PPN
+                                </option>
+                              </select>
+                            </div>
+                            <label
+                              id="serialnumberForm:PZNorPPN_label"
+                              class="ui-selectonemenu-label ui-inputfield ui-corner-all"
+                              >GTIN/NTIN</label
+                            >
+                            <div
+                              class="ui-selectonemenu-trigger ui-state-default ui-corner-right">
+                              <span
+                                class="ui-icon ui-icon-triangle-1-s ui-c"></span>
+                            </div>
+                          </div>
+                          <input
+                            id="serialnumberForm:productCode"
+                            name="serialnumberForm:productCode"
+                            type="text"
+                            value=""
+                            class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all panel-filter-70"
+                            onblur="onProductCodeChanged()"
+                            role="textbox"
+                            aria-readonly="false"
+                            aria-disabled="false" />
+                        </div>
+                      </div>
+                      <div id="serialnumberForm:j_id_3p" class="row">
+                        <div id="serialnumberForm:j_id_3q" class="col-xs-4">
+                          <span id="serialnumberForm:id35056605"
+                            >Seriālais numurs</span
+                          >
+                        </div>
+                        <div id="serialnumberForm:j_id_3s" class="col-xs-8">
+                          <input
+                            id="serialnumberForm:serialNr"
+                            name="serialnumberForm:serialNr"
+                            type="text"
+                            class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"
+                            aria-required="true"
+                            maxlength="20"
+                            role="textbox"
+                            aria-readonly="false"
+                            aria-disabled="false" />
+                        </div>
+                      </div>
+                      <div id="serialnumberForm:j_id_3u_1" class="row">
+                        <div id="serialnumberForm:j_id_3u_2" class="col-xs-4">
+                          <span id="serialnumberForm:id45520605"
+                            >Partijas nr.</span
+                          >
+                        </div>
+                        <div id="serialnumberForm:j_id_3u_4" class="col-xs-8">
+                          <input
+                            id="serialnumberForm:lot"
+                            name="serialnumberForm:lot"
+                            type="text"
+                            class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"
+                            aria-required="true"
+                            role="textbox"
+                            aria-readonly="false"
+                            aria-disabled="false" />
+                        </div>
+                      </div>
+                      <div id="serialnumberForm:j_id_3u_6" class="row">
+                        <div id="serialnumberForm:j_id_3u_7" class="col-xs-4">
+                          <span id="serialnumberForm:id52272605"
+                            >Derīguma termiņš</span
+                          >
+                        </div>
+                        <div id="serialnumberForm:j_id_3u_9" class="col-xs-8">
+                          <input
+                            id="serialnumberForm:expiry"
+                            name="serialnumberForm:expiry"
+                            type="text"
+                            class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"
+                            aria-required="true"
+                            maxlength="6"
+                            placeholder="GGMMDD"
+                            role="textbox"
+                            aria-readonly="false"
+                            aria-disabled="false" />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="serialnumberForm:snprocess_panel"
+                      class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay">
+                      <div
+                        class="ui-selectonemenu-items-wrapper"
+                        style="max-height: 200px"></div>
+                    </div>
+                    <div
+                      id="serialnumberForm:scanmodeSelect_panel"
+                      class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay">
+                      <div
+                        class="ui-selectonemenu-items-wrapper"
+                        style="max-height: 200px"></div>
+                    </div>
+                    <div
+                      id="serialnumberForm:PZNorPPN_panel"
+                      class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay">
+                      <div
+                        class="ui-selectonemenu-items-wrapper"
+                        style="max-height: 200px"></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div
+            id="serialnumberForm:userButtonPanel"
+            class="ui-panel ui-widget ui-widget-content ui-corner-all clearfix vspacer footer-panel"
+            data-widget="widget_serialnumberForm_userButtonPanel"
+            aria-busy="false">
+            <div
+              id="serialnumberForm:userButtonPanel_content"
+              class="ui-panel-content ui-widget-content">
+              <button
+                id="serialnumberForm:execute"
+                name="serialnumberForm:execute"
+                class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only securpharm-button pull-right"
+                aria-label=""
+                type="submit"
+                role="button"
+                aria-disabled="false">
+                <span class="ui-button-text ui-c">Sākt</span></button
+              ><button
+                class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only securpharm-button pull-right"
+                aria-label=""
+                role="button"
+                aria-disabled="false"
+                id="scanner_showInput"
+                type="button">
+                <span class="ui-button-text ui-c">Izmantot skeneri</span>
+              </button>
+              <script id="serialnumberForm:j_id_3y" type="text/javascript">
+                onProductCodeChanged = function () {
+                  return PrimeFaces.ab({
+                    s: 'serialnumberForm:j_id_3y',
+                    f: 'serialnumberForm',
+                    p: 'serialnumberForm:productCode serialnumberForm:idInNHRN',
+                    u: 'serialnumberForm:productCode serialnumberForm:idInNHRN serialnumberForm:userButtonPanel',
+                    onst: function (cfg) {
+                      PF('blockExecuteButton').show();
+                    },
+                    onco: function (xhr, status, args, data) {
+                      PF('blockExecuteButton').hide();
+                    },
+                    pa: arguments[0],
+                  });
+                };
+              </script>
+              <script id="serialnumberForm:j_id_3z" type="text/javascript">
+                onNhrnChanged = function () {
+                  return PrimeFaces.ab({
+                    s: 'serialnumberForm:j_id_3z',
+                    f: 'serialnumberForm',
+                    p: 'serialnumberForm:idInNHRN',
+                    u: 'serialnumberForm:idInNHRN serialnumberForm:userButtonPanel',
+                    onst: function (cfg) {
+                      PF('blockExecuteButton').show();
+                    },
+                    onco: function (xhr, status, args, data) {
+                      PF('blockExecuteButton').hide();
+                    },
+                    pa: arguments[0],
+                  });
+                };
+              </script>
+            </div>
+            <div
+              id="serialnumberForm:j_id_3w_blocker"
+              class="ui-blockui ui-widget-overlay ui-helper-hidden ui-corner-all"></div>
+            <div
+              id="serialnumberForm:j_id_3w"
+              class="ui-blockui-content ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow"></div>
+          </div>
+        </div>
+        <div id="serialnumberForm:j_id_43" class="col-md-6 col-xs-12 col-lg-4">
+          <table
+            id="serialnumberForm:j_id_44"
+            class="ui-panelgrid ui-widget"
+            style="opacity: 0; filter: alpha(opacity=0)"
+            role="grid">
+            <tbody>
+              <tr class="ui-widget-content" role="row">
+                <td role="gridcell" class="ui-panelgrid-cell">
+                  <div
+                    id="serialnumberForm:hiddenfield"
+                    class="ui-panel ui-widget ui-widget-content ui-corner-all"
+                    style="opacity: 0; filter: alpha(opacity=0)"
+                    data-widget="widget_serialnumberForm_hiddenfield">
+                    <div
+                      id="serialnumberForm:hiddenfield_content"
+                      class="ui-panel-content ui-widget-content"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="ui-widget-content" role="row">
+                <td role="gridcell" class="ui-panelgrid-cell">
+                  <a
+                    id="serialnumberForm:submitscanner"
+                    href="#"
+                    class="ui-commandlink ui-widget"
+                    aria-label=""
+                    onclick="PrimeFaces.addSubmitParam('serialnumberForm',{'serialnumberForm:submitscanner':'serialnumberForm:submitscanner'}).submit('serialnumberForm');return false;"
+                    style="display: none"
+                    >Sākt</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <input type="hidden" name="serialnumberForm_SUBMIT" value="1" /><input
+        type="hidden"
+        name="javax.faces.ViewState"
+        id="j_id__v_0:javax.faces.ViewState:4"
+        value="ODZBMUQ5NzRCMzlENThEQTAwMDAwMDAy"
+        autocomplete="off" /><input
+        type="hidden"
+        id="j_id__v_0:javax.faces.ClientWindow:4"
+        name="javax.faces.ClientWindow"
+        value="8547" />
+      <div
+        id="serialnumberForm:j_id_5s_blocker"
+        class="ui-blockui ui-widget-overlay ui-helper-hidden"></div>
+      <div
+        id="serialnumberForm:j_id_5s"
+        class="ui-blockui-content ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow">
+        <img
+          id="serialnumberForm:j_id_5t"
+          src="../resources/images/ajax-loader.gif?pfdrid_c=true"
+          alt="" />
+      </div>
+    </form>
+
+    <script src="main.js"></script>
+  </body>
+</html>
