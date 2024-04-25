@@ -4,13 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1600, initial-scale=1.0" />
     <title>Scanner test</title>
-    <script
-      src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"
-      integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k="
-      crossorigin="anonymous"></script>
-    <script
-      type="text/javascript"
-      src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <p id="output"></p>
@@ -19,7 +13,7 @@
       id="serialnumberForm"
       name="serialnumberForm"
       method="post"
-      action="/NMVS_PORTAL/sn/Serialnumber.xhtml?dswid=8547"
+      action="#"
       enctype="application/x-www-form-urlencoded"
       style="position: relative"
       aria-busy="false">
@@ -75,8 +69,7 @@
                                 name="serialnumberForm:snprocess_input"
                                 tabindex="-1"
                                 autocomplete="off"
-                                aria-hidden="true"
-                                onchange='PrimeFaces.bcn(this,event,[function(event){PrimeFaces.ab({s:"serialnumberForm:snprocess",e:"valueChange",f:"serialnumberForm",p:"serialnumberForm:snprocess",u:"serialnumberForm:hiddenfield"});},function(event){PrimeFaces.ab({s:"serialnumberForm:snprocess",e:"valueChange",f:"serialnumberForm",p:"serialnumberForm:snprocess",u:"serialnumberForm"});}]);'>
+                                aria-hidden="true">
                                 <option
                                   value="snVERIFY"
                                   selected="selected"
@@ -165,8 +158,7 @@
                                 name="serialnumberForm:scanmodeSelect_input"
                                 tabindex="-1"
                                 autocomplete="off"
-                                aria-hidden="true"
-                                onchange='PrimeFaces.ab({s:"serialnumberForm:scanmodeSelect",e:"valueChange",f:"serialnumberForm",p:"serialnumberForm:scanmodeSelect",u:"serialnumberForm"});'>
+                                aria-hidden="true">
                                 <option
                                   value="snInputManu"
                                   selected="selected"
@@ -216,8 +208,7 @@
                                 name="serialnumberForm:PZNorPPN_input"
                                 tabindex="-1"
                                 autocomplete="off"
-                                aria-hidden="true"
-                                onchange='PrimeFaces.ab({s:"serialnumberForm:PZNorPPN",e:"valueChange",f:"serialnumberForm",p:"serialnumberForm:PZNorPPN",u:"serialnumberForm",ps:true});'>
+                                aria-hidden="true">
                                 <option
                                   value="GTIN"
                                   selected="selected"
@@ -246,7 +237,6 @@
                             type="text"
                             value=""
                             class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all panel-filter-70"
-                            onblur="onProductCodeChanged()"
                             role="textbox"
                             aria-readonly="false"
                             aria-disabled="false" />
@@ -352,50 +342,8 @@
                 type="submit"
                 role="button"
                 aria-disabled="false">
-                <span class="ui-button-text ui-c">Sākt</span></button
-              ><button
-                class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only securpharm-button pull-right"
-                aria-label=""
-                role="button"
-                aria-disabled="false"
-                id="scanner_showInput"
-                type="button">
-                <span class="ui-button-text ui-c">Izmantot skeneri</span>
+                <span class="ui-button-text ui-c">Sākt</span>
               </button>
-              <script id="serialnumberForm:j_id_3y" type="text/javascript">
-                onProductCodeChanged = function () {
-                  return PrimeFaces.ab({
-                    s: 'serialnumberForm:j_id_3y',
-                    f: 'serialnumberForm',
-                    p: 'serialnumberForm:productCode serialnumberForm:idInNHRN',
-                    u: 'serialnumberForm:productCode serialnumberForm:idInNHRN serialnumberForm:userButtonPanel',
-                    onst: function (cfg) {
-                      PF('blockExecuteButton').show();
-                    },
-                    onco: function (xhr, status, args, data) {
-                      PF('blockExecuteButton').hide();
-                    },
-                    pa: arguments[0],
-                  });
-                };
-              </script>
-              <script id="serialnumberForm:j_id_3z" type="text/javascript">
-                onNhrnChanged = function () {
-                  return PrimeFaces.ab({
-                    s: 'serialnumberForm:j_id_3z',
-                    f: 'serialnumberForm',
-                    p: 'serialnumberForm:idInNHRN',
-                    u: 'serialnumberForm:idInNHRN serialnumberForm:userButtonPanel',
-                    onst: function (cfg) {
-                      PF('blockExecuteButton').show();
-                    },
-                    onco: function (xhr, status, args, data) {
-                      PF('blockExecuteButton').hide();
-                    },
-                    pa: arguments[0],
-                  });
-                };
-              </script>
             </div>
             <div
               id="serialnumberForm:j_id_3w_blocker"
@@ -432,7 +380,6 @@
                     href="#"
                     class="ui-commandlink ui-widget"
                     aria-label=""
-                    onclick="PrimeFaces.addSubmitParam('serialnumberForm',{'serialnumberForm:submitscanner':'serialnumberForm:submitscanner'}).submit('serialnumberForm');return false;"
                     style="display: none"
                     >Sākt</a
                   >
@@ -457,12 +404,7 @@
         class="ui-blockui ui-widget-overlay ui-helper-hidden"></div>
       <div
         id="serialnumberForm:j_id_5s"
-        class="ui-blockui-content ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow">
-        <img
-          id="serialnumberForm:j_id_5t"
-          src="../resources/images/ajax-loader.gif?pfdrid_c=true"
-          alt="" />
-      </div>
+        class="ui-blockui-content ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow"></div>
     </form>
 
     <script src="main.js"></script>

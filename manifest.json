@@ -14,7 +14,6 @@
                 "https://portal-prod-lv.nmvs.eu/NMVS_PORTAL/sn/Serialnumber.xhtml*"
             ],
             "js": [
-                "jquery-3.7.1.min.js",
                 "main.js"
             ],
             "css": [

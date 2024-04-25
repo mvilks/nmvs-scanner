@@ -1,105 +1,157 @@
-(function (win, $, undef) {
+(function (win, doc, undef) {
   const backdropId = 'nmvs-scanner_backdrop';
   const scanInputId = 'nmvs-scanner_input';
   const scanButtonId = 'nmvs-scanner_button';
 
   // Let's hope these don't change
-  const formId = '#serialnumberForm';
-  const pcId = '#serialnumberForm\\:productCode';
-  const lotId = '#serialnumberForm\\:lot';
-  const expId = '#serialnumberForm\\:expiry';
-  const snId = '#serialnumberForm\\:serialNr';
+  const formId = 'serialnumberForm';
+  const pcId = 'serialnumberForm:productCode';
+  const lotId = 'serialnumberForm:lot';
+  const expId = 'serialnumberForm:expiry';
+  const snId = 'serialnumberForm:serialNr';
 
   function setUp() {
-    if (!!$(`#${backdropId}`).length) {
+    if (doc.getElementById(backdropId) !== null) {
       return;
     }
 
-    const backdrop = $('<div>', {
-      id: backdropId,
-      class: backdropId,
+    const backdrop = createElement(
+      'div',
+      { id: backdropId, class: backdropId },
+      { click: backdropClickHandler }
+    );
+
+    const input = createElement(
+      'input',
+      {
+        id: scanInputId,
+        type: 'text',
+        class: [
+          'ui-inputfield',
+          'ui-inputtext',
+          'ui-widget',
+          'ui-state-default',
+          'ui-corner-all',
+          scanInputId,
+        ].join(' '),
+      },
+      { keyup: inputKeyupHandler }
+    );
+
+    const button = createElement(
+      'button',
+      {
+        id: scanButtonId,
+        type: 'button',
+        class: [
+          'ui-button',
+          'ui-widget',
+          'ui-state-default',
+          'ui-corner-all',
+          'ui-button-text-only',
+          'securpharm-button',
+          'pull-right',
+        ].join(' '),
+      },
+      { click: showBackdrop }
+    );
+    const buttonText = createElement('span', {
+      class: ['ui-button-text', 'ui-c'].join(' '),
     });
-    const input = $('<input>', {
-      id: scanInputId,
-      type: 'text',
-    }).addClass([
-      'ui-inputfield',
-      'ui-inputtext',
-      'ui-widget',
-      'ui-state-default',
-      'ui-corner-all',
-      scanInputId,
-    ]);
-    const button = $('<button>', {
-      id: scanButtonId,
-      type: 'button',
-    })
-      .addClass([
-        'ui-button',
-        'ui-widget',
-        'ui-state-default',
-        'ui-corner-all',
-        'ui-button-text-only',
-        'securpharm-button',
-        'pull-right',
-      ])
-      .append(
-        $('<span>').addClass(['ui-button-text', 'ui-c']).text('Skenēt kodu')
-      );
+    buttonText.innerText = 'Skenēt kodu';
+    button.appendChild(buttonText);
 
-    backdrop.append(input);
-    $('body').append(backdrop);
-    $(formId).prepend(button);
+    backdrop.appendChild(input);
+    doc.body.appendChild(backdrop);
+    const form = doc.getElementById(formId);
+    if (form !== null) {
+      form.appendChild(button);
+    } else {
+      console.error('No form found. Has form ID changed?');
+    }
+  }
 
-    backdrop.on('click', function (e) {
-      if (e.target === this) {
-        hideBackdrop();
-      }
-    });
+  function backdropClickHandler(e) {
+    if (e.target === this) {
+      hideBackdrop();
+    }
+  }
 
-    input.on('keyup', function ({ originalEvent: event }) {
-      if (event.keyCode === 13) {
-        fillForm(parseGTIN(input.val()));
-        hideBackdrop();
-      }
+  function inputKeyupHandler(e) {
+    if (e.key.toLowerCase() === 'enter') {
+      fillForm(parseGTIN(this.value));
+      hideBackdrop();
+    }
 
-      if (/^[a-zA-Z0-9\]]$/.test(event.key) === false) {
-        return;
-      }
+    if (/^[a-zA-Z0-9\]]$/.test(e.key) === false) {
+      return;
+    }
 
-      if (event.ctrlKey) {
-        if (event.key === ']') {
-          input.val(input.val() + '\x1d');
-        }
-      }
+    if (e.ctrlKey && e.key === ']') {
+      this.value = this.value + '\x1d';
+    }
 
-      event.stopPropagation();
-      event.preventDefault();
+    e.preventDefault();
+    e.stopPropagation();
 
-      return false;
-    });
+    return false;
+  }
 
-    button.on('click', showBackdrop);
+  function createElement(tag, attributes, events) {
+    const element = doc.createElement(tag);
+    for (let a in attributes) {
+      element.setAttribute(a, attributes[a]);
+    }
+    for (let e in events) {
+      element.addEventListener(e, events[e]);
+    }
+    return element;
   }
 
   function showBackdrop() {
-    if (!$(`#${backdropId}`).length) {
+    const backdrop = doc.getElementById(backdropId);
+    if (backdrop === null) {
       setUp();
+      return;
     }
 
-    $(`#${backdropId}`).css('left', '0px');
-    $(`#${scanInputId}`).focus();
+    backdrop.style.left = '0px';
+    const input = doc.getElementById(scanInputId);
+    if (input !== null) {
+      input.focus();
+    }
   }
+
   function hideBackdrop() {
-    $(`#${backdropId}`).css('left', '-200%');
-    $(`#${scanInputId}`).val('').blur();
+    const backdrop = doc.getElementById(backdropId);
+    const input = doc.getElementById(scanInputId);
+
+    if (input !== null) {
+      input.value = '';
+      input.blur();
+    }
+    if (backdrop !== null) {
+      backdrop.style.left = '-200%';
+    }
   }
 
   function fillForm(data) {
-    $(pcId).val(data.pc);
-    $(lotId).val(data.lot);
-    $(expId).val(data.rawExp);
-    $(snId).val(data.sn);
+    const pc = doc.getElementById(pcId);
+    if (pc !== null) {
+      pc.value = data.pc;
+    }
+    const lot = doc.getElementById(lotId);
+    if (lot !== null) {
+      lot.value = data.lot;
+    }
+    const exp = doc.getElementById(expId);
+    if (exp !== null) {
+      exp.value = data.rawExp;
+    }
+    const sn = doc.getElementById(snId);
+    if (sn !== null) {
+      sn.value = data.sn;
+    }
   }
 
   // Utilities
@@ -114,7 +166,14 @@
     const gs1_sn = '21';
 
     let start = 0;
-    const pack = { scheme: 'GTIN' };
+    const pack = {
+      scheme: 'GTIN',
+      pc: '',
+      lot: '',
+      exp: '',
+      rawExp: '',
+      sn: '',
+    };
 
     while (true) {
       if (start >= data.length - 1) {
@@ -207,4 +266,4 @@
   }
 
   setUp();
-})(this, this.jQuery);
+})(this, this.document);
