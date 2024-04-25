@@ -17,7 +17,7 @@
 
     const backdrop = createElement(
       'div',
-      { id: backdropId, class: backdropId },
+      { id: backdropId },
       { click: backdropClickHandler }
     );
 
@@ -26,14 +26,7 @@
       {
         id: scanInputId,
         type: 'text',
-        class: [
-          'ui-inputfield',
-          'ui-inputtext',
-          'ui-widget',
-          'ui-state-default',
-          'ui-corner-all',
-          scanInputId,
-        ].join(' '),
+        class: ['ui-inputfield', 'ui-widget', 'ui-state-default'].join(' '),
       },
       { keyup: inputKeyupHandler }
     );
@@ -45,7 +38,6 @@
         type: 'button',
         class: [
           'ui-button',
-          'ui-widget',
           'ui-state-default',
           'ui-corner-all',
           'ui-button-text-only',
@@ -55,9 +47,7 @@
       },
       { click: showBackdrop }
     );
-    const buttonText = createElement('span', {
-      class: ['ui-button-text', 'ui-c'].join(' '),
-    });
+    const buttonText = createElement('span', { class: 'ui-button-text' });
     buttonText.innerText = 'Skenēt kodu';
     button.appendChild(buttonText);
 
@@ -65,7 +55,7 @@
     doc.body.appendChild(backdrop);
     const form = doc.getElementById(formId);
     if (form !== null) {
-      form.appendChild(button);
+      form.insertBefore(button, form.firstChild);
     } else {
       console.error('No form found. Has form ID changed?');
     }

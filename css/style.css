@@ -1,4 +1,4 @@
-.nmvs-scanner_backdrop {
+#nmvs-scanner_backdrop {
   display: block;
   position: absolute;
   top: 0px;
@@ -8,14 +8,12 @@
   background-color: #80808080;
 }
 
-.nmvs-scanner_input {
+#nmvs-scanner_input {
   top: 50%;
   left: 50%;
   width: 20em;
   margin: -50px 0 0 -10em;
   display: block;
   position: absolute;
-  border: 2px solid #3d597c;
-  border-radius: 5px;
   box-shadow: 0 0 5px 5px #ddd;
 }
